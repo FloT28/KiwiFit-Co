@@ -6,23 +6,33 @@ using namespace std;
 void workoutMenu(){
     cout <<"🌿 🏋️ LOG WORKOUT  🌿 "<<endl;
 
-    std::cout << "1. Log Workout";
-    std::cout <<"2. View History";
-    std::cout <<"Enter choice: " << endl;
+    cout << "1. Log Workout"<<endl;
+    cout <<"2. View History"<<endl;
+    cout <<"3. Delete Workout"<<endl;
+
+    cout <<"Enter choice (1-3): " << endl;
 
     int user_input; 
-    std::cin >> user_input;
+    cin >> user_input;
 
     if (user_input == 1){
-        std::cout << "Log Workout" << endl;
+       cout << "Log Workout" << endl;
     } else if (user_input == 2){
-        std::cout << "History"<<endl;
-    } else {
-        std::cout <<"Invalid option" << endl;
+        cout << "History"<<endl;
+    } else if (user_input == 3){
+        cout<<"Delete Workout"<<endl;
+    }else {
+        cout <<"Invalid option" << endl;
+        cout<<"🔁 Returning to Main Menu... "<<endl;
     }
 
+    system("pause");
+    system("cls");    // clear screen
 }
 
+void Add_Workout();
+void View_Workout();
+void Delete_Workout();
 
 
 //To-Do: add workout logic
