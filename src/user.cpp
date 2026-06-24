@@ -8,6 +8,8 @@ using namespace std;
 void User_Menu(){
 
     cout <<"🌿 👤 User Menu 🌿 "<<endl;
+    
+    cout <<"Sign-in first"<<endl;
 
     cout <<"1. 📋 View Profile"<<endl;
     cout <<"2. ✏️ Update Profile"<<endl;
@@ -31,6 +33,11 @@ void User_Menu(){
 
 }
 
-void ViewProfile();
+void Signin();
+
+void ViewProfile(){
+
+}
+
 void UpdateProfile();
 

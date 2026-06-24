@@ -1,12 +1,12 @@
 //KiwiFit Co - Gym Session Logger  
 //Author: [Florence Taele]
-//Date: 20/06/26 
 //Status: In progress
 
 
 #include <iostream>
 #include <fstream>
 #include <string>
+
 #include <windows.h>
 
 #include "tools.h"
@@ -16,7 +16,29 @@
 
 using namespace std;
 
+bool SigningIn(){
 
+        string name,password;
+        int age;
+
+        cout <<"Enter first name: "<< endl;
+        cin >> name; 
+
+        cout << "Enter password: " << endl; 
+        cin >> password; 
+
+        ifstream read(name + ".txt"); 
+        getline(read, name);
+        getline(read, password);
+
+        if (name == name && password == password){
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
+}
 
 void WelcomeScreen(){
 
@@ -69,15 +91,66 @@ void MainMenu(){
 }
 
 void Register(){
-    string name, last_name;
-    int age;
-}
+    
+        int user_choice;
+        string name,password;
+        int age;
+
+
+        cout <<"1. Sign-up (as new User)"<<endl;
+        cout <<"2. Sign-in (existing user)"<<endl;
+        cout <<"3. Main Menu"<<endl;
+
+        cin >> user_choice;
+
+        if (user_choice == 1){
+            cout <<"Enter first name: ";
+            cin >> name;
+            cout <<"Enter your age: ";
+            cin >> age;
+            cout <<"Enter your password: ";
+            cin >> password; 
+
+            //Store new users into file
+            ofstream file;
+            file.open(name + ".txt");
+            file << name << endl << age << password;
+            file.close();
+
+        } else if (user_choice == 2){
+            bool status = SigningIn();
+            if (!status)
+            {
+                cout <<"Incorrect Credentials!, Try Again!" << endl;
+                pauseScreen();
+            } 
+            else {
+                cout <<"Login Successful!, Try Again!" << endl;
+                User_Menu();
+                pauseScreen();
+            }
+        } else {
+            cout <<"Returning to Main Menu...";
+        }
+    }
+
+
+
 
 int main() { 
 
     SetConsoleOutputCP(CP_UTF8);
 
+    //Welcome Screen window
     WelcomeScreen();
+
+    //Register Screen page
+    Register();
+    
+    pauseScreen();
+    clearScreen();
+
+    //Main Menu Window
     MainMenu();
 
     return 0;
