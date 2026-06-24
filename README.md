@@ -8,7 +8,7 @@ C++
 Simple Gym session log, to track your training and get stronger.
 
 **Status:**
-In-progress - completion date 27/06/26 
+In-progress - completion date 03/07/26 
 Update: 
 Day 1: 19/06/26 
 1. Create Project Folder
