@@ -9,9 +9,7 @@ void User_Menu(){
 
     cout <<"🌿 👤 User Menu 🌿 "<<endl;
     
-    cout <<"Sign-in first"<<endl;
-
-    cout <<"1. 📋 View Profile"<<endl;
+    cout <<"1. 📋View Profile"<<endl;
     cout <<"2. ✏️ Update Profile"<<endl;
     cout <<"0. 🚪 Exit "<<endl;
 
@@ -28,14 +26,19 @@ void User_Menu(){
         cout <<"Invalid option" << endl;
         cout<<"🔁 Returning to Main Menu... "<<endl;
     }
-
+    
+    pauseScreen();
     clearScreen();
 
 }
 
 void Signin();
 
-void ViewProfile(){
+void View_Profile(){
+    cout<<"Welcome back"<<endl;
+    //Collect user information 
+
+    //Display via new window 
 
 }
 
