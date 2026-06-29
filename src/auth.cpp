@@ -25,16 +25,19 @@ bool SigningIn(){
         getline(read, name);
         getline(read, password);
 
-        if (name == name && password == password){
-            View_Profile();
+            if (name == name && password == password){
+                View_Profile();
+                cout <<"\n";
+                return true;
+            }
+            else 
+            {
+                RegisterMenu();
+                break;
+                return false;
+            }
         }
-        else 
-        {
-            RegisterMenu();
-            break;
-        }
-        }
-       
+       return false;
 }
 
 void RegisterMenu(){
@@ -61,7 +64,7 @@ void RegisterMenu(){
             //Store new users into file
             ofstream file;
             file.open(name + ".txt");
-            file << name << endl << age << password;
+            file << "Name: "<< name << endl <<"Age: " << age << endl <<"Password: " << password;//encrypted password
             file.close();
 
         } else if (user_choice == 2){
