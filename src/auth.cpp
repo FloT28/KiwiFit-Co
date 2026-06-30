@@ -33,8 +33,8 @@ bool SigningIn(){
             else 
             {
                 RegisterMenu();
-                break;
                 return false;
+                break;
             }
         }
        return false;
@@ -81,6 +81,7 @@ void RegisterMenu(){
             }
         } else {
             cout <<"Returning to Main Menu...";
+            break;
         }
         }
        

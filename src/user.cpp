@@ -11,6 +11,7 @@ void User_Menu(){
     
     cout <<"1. 📋View Profile"<<endl;
     cout <<"2. ✏️ Update Profile"<<endl;
+    cout <<"3. Return to Main Menu";
     cout <<"0. 🚪 Exit "<<endl;
 
     cout <<"Enter choice (1-3): " << endl;

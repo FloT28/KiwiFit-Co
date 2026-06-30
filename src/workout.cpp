@@ -1,4 +1,6 @@
 #include "workout.h"
+#include "tools.h"
+
 #include <iostream>
 
 using namespace std;
@@ -30,7 +32,30 @@ void workoutMenu(){
     system("cls");    // clear screen
 }
 
-void Add_Workout();
+void Add_Workout(){
+    int dd,mth,yr,weight,reps,sets;
+    string exersize_type;
+
+    pauseScreen();
+    clearScreen();
+    cout <<"Welcome to Kiwifit Co!"<<endl;
+    cout <<"\n Details: Add the following details for an updated workout log..."<<endl;
+
+    cout <<"Date: "<<endl;
+
+    cout<<"Exercise Type: "<<endl;
+    cin >> exersize_type;
+
+    cout <<"Sets: "<<endl;
+    cin >> sets;
+
+    cout <<"Reps: "<<endl;
+    cin>>reps;
+
+    cout<<"Weight"<<endl;
+    cin >> weight;
+};
+
 void View_Workout();
 void Delete_Workout();
 
