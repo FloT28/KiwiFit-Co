@@ -4,14 +4,38 @@
 
 #include <iostream>
 #include <fstream>
+#include <conio.h>
+#include <string>
 
 
 using namespace std; 
 
+string getHiddenpassword(){
+    char pwd[9];
+    int i;
+
+    //Password length of only 8 characters allowed
+
+    clearScreen();
+
+    cout <<"Enter Password: ";
+    for (i=0; i <8; i++){
+        //get hidden user input for password 
+        // use of getch() method 
+        pwd[i] = getch();
+        cout <<"*";
+    }
+    pwd[i] = '\0';
+    cout << endl;
+
+    return string(pwd); // convert char array to string to return password
+};
 
 bool SigningIn(){
+        string storedName, storedPassword, storedAge;
 
-        string name,password;
+        string name;
+        string password = getHiddenpassword();
         int age;
 
         while (true){
@@ -19,55 +43,73 @@ bool SigningIn(){
         cin >> name; 
 
         cout << "Enter password: " << endl; 
-        cin >> password; 
+        password = getHiddenpassword();
+        
+        //check if user's name and password is found inside files 
+        ifstream read("Users/" + name + ".txt");         
+        
+        if(!read.is_open()){
+            cout <<"Account cannot be found!" << endl;
+            RegisterMenu();//Returns to main menu (signup, login)
+            return false;//No account found!
+        }
 
-        ifstream read(name + ".txt"); 
-        getline(read, name);
-        getline(read, password);
+        getline(read, storedName);//Check for stored Name and password inside txt file
+        getline(read, storedAge);
+        getline(read, storedPassword);
 
-            if (name == name && password == password){
+        storedName      = storedName.substr(storedName.find(": ") + 2);
+        storedAge       = storedAge.substr(storedAge.find(": ") + 2);
+        storedPassword  = storedPassword.substr(storedPassword.find(": ") + 2);
+
+            //validate or check enter credentials
+            if (name == storedName && password == storedPassword){
                 View_Profile();
                 cout <<"\n";
                 return true;
             }
             else 
             {
-                RegisterMenu();
+                cout <<"Incorrect password.\n";
                 return false;
                 break;
             }
         }
-       return false;
 }
 
 void RegisterMenu(){
-    
-        int user_choice;
-        string name,password;
-        int age;
+        struct User{
+            int user_choice;
+            string name,password;
+            int age;
+
+        };
 
         while(true){
- cout <<"1. Sign-up (as new User)"<<endl;
+        
+        User u1;
+
+        cout <<"1. Sign-up (as new User)"<<endl;
         cout <<"2. Sign-in (existing user)"<<endl;
         cout <<"3. Main Menu"<<endl;
 
-        cin >> user_choice;
+        cin >> u1.user_choice;
 
-        if (user_choice == 1){
+        if (u1.user_choice == 1){
             cout <<"Enter first name: ";
-            cin >> name;
+            cin >> u1.name;
             cout <<"Enter your age: ";
-            cin >> age;
+            cin >> u1.age;
             cout <<"Enter your password: ";
-            cin >> password; 
+            u1.password = getHiddenpassword();
 
             //Store new users into file
             ofstream file;
-            file.open(name + ".txt");
-            file << "Name: "<< name << endl <<"Age: " << age << endl <<"Password: " << password;//encrypted password
+            file.open( "Users/" + u1.name + ".txt");
+            file << "Name: "<< u1.name << endl <<"Age: " << u1.age << endl <<"Password: " << u1.password;//encrypted password
             file.close();
 
-        } else if (user_choice == 2){
+        } else if (u1.user_choice == 2){
             bool status = SigningIn();
             if (!status)
             {
