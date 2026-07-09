@@ -3,7 +3,7 @@
 
 void workoutMenu();
 // To-Do: Add workout functions 
-void Add_Workout();
+void log_workout();
 void View_Workout();
 void Delete_Workout();
 

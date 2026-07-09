@@ -1,5 +1,6 @@
 #include "user.h"
 #include "tools.h"
+#include "workout.h"
 #include <iostream>
 
 using namespace std;
@@ -11,7 +12,8 @@ void User_Menu(){
     
     cout <<"1. 📋View Profile"<<endl;
     cout <<"2. ✏️ Update Profile"<<endl;
-    cout <<"3. Return to Main Menu";
+    cout << "3. Workout Menu";
+    cout <<"4. Return to Main Menu";
     cout <<"0. 🚪 Exit "<<endl;
 
     cout <<"Enter choice (1-3): " << endl;
@@ -23,6 +25,9 @@ void User_Menu(){
        cout << "View Profile" << endl;
     } else if (user_input == 2){
         cout << "History"<<endl;
+    }
+    else if(user_input == 3){
+        workoutMenu();
     } else {
         cout <<"Invalid option" << endl;
         cout<<"🔁 Returning to Main Menu... "<<endl;
@@ -33,12 +38,13 @@ void User_Menu(){
 
 }
 
-void Signin();
+void Signin(
+    
+);
 
 void View_Profile(){
     cout<<"Welcome back"<<endl;
     //Collect user information 
-
     //Display via new window 
 
 }

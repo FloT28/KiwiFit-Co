@@ -1,0 +1,3 @@
+Name: flore
+Age: 20
+Password: flowers

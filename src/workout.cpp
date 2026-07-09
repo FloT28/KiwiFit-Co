@@ -1,5 +1,9 @@
 #include "workout.h"
 #include "tools.h"
+#include "auth.h"
+#include "main.h"
+
+#include <fstream>
 
 #include <iostream>
 
@@ -19,11 +23,14 @@ void workoutMenu(){
 
     if (user_input == 1){
        cout << "Log Workout" << endl;
+       log_workout();
     } else if (user_input == 2){
         cout << "History"<<endl;
+        View_Workout();
     } else if (user_input == 3){
         cout<<"Delete Workout"<<endl;
-    }else {
+    }
+    else {
         cout <<"Invalid option" << endl;
         cout<<"🔁 Returning to Main Menu... "<<endl;
     }
@@ -32,31 +39,57 @@ void workoutMenu(){
     system("cls");    // clear screen
 }
 
-void Add_Workout(){
-    int dd,mth,yr,weight,reps,sets;
-    string exersize_type;
+string currentUser; //Current logged in user 
 
-    pauseScreen();
-    clearScreen();
-    cout <<"Welcome to Kiwifit Co!"<<endl;
-    cout <<"\n Details: Add the following details for an updated workout log..."<<endl;
+//Workout log function
+void log_workout(){
+    
+    //Variables to store user data 
+    string exercise_type;
+    int sets, reps; 
+    double weight; 
 
-    cout <<"Date: "<<endl;
+    cin.ignore(); // clears newline after previous cin >> 
 
-    cout<<"Exercise Type: "<<endl;
-    cin >> exersize_type;
+    //Collecting User input for Exercises types
+    cout <<"Exercise Name: ";
+    getline(cin, exercise_type);
 
-    cout <<"Sets: "<<endl;
+    cout <<"Enter sets: ";
     cin >> sets;
-
-    cout <<"Reps: "<<endl;
-    cin>>reps;
-
-    cout<<"Weight"<<endl;
+    cout <<"Enter reps: ";
+    cin >> reps;
+    cout <<"Enter weight: ";
     cin >> weight;
+
+    //Search within User folder and store workout history into text file
+    ofstream log("Users/" + currentUser + "workouts.txt");
+    log << exercise_type <<" | Sets: " << sets << "| Reps: " << reps << " | Weight: " << weight
+     << endl;
+     //Format to store text inside workouts.txt file
+    log.close();
+
 };
 
-void View_Workout();
+void View_Workout(){
+    cout<<"Workout Logs Loading...📝"<<endl;
+
+    //View Workout - No History of workout for currentUser
+    ifstream log("Users/" + currentUser + "workouts.txt");
+    if (!log.is_open()){
+        cout <<"No Workout History found with those details!.\n";
+        return;
+    }
+    
+    //Show Workout History - currentUser account
+    string line; 
+    cout <<"\n ***** Workout History for:  ***" << currentUser << "****\n";
+    while(getline(log, line)){
+        cout << line << endl;
+    }
+    log.close();
+};
+
 void Delete_Workout();
 
 
