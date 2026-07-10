@@ -78,38 +78,34 @@ bool SigningIn(){
 }
 
 void RegisterMenu(){
-        struct User{
-            int user_choice;
-            string name,password;
-            int age;
 
-        };
+        int user_choice; 
+        string name, password; 
+        int age;
 
         while(true){
-        
-        User u1;
 
-        cout <<"1. Sign-up (as new User)"<<endl;
+        cout <<"1. Sign-up (New User)"<<endl;
         cout <<"2. Sign-in (existing user)"<<endl;
         cout <<"3. Main Menu"<<endl;
 
-        cin >> u1.user_choice;
+        cin >> user_choice;
 
-        if (u1.user_choice == 1){
+        if (user_choice == 1){
             cout <<"Enter first name: ";
-            cin >> u1.name;
+            cin >> name;
             cout <<"Enter your age: ";
-            cin >> u1.age;
+            cin >> age;
             cout <<"Enter your password: ";
-            u1.password = getHiddenpassword();
+            password = getHiddenpassword();
 
             //Store new users into file
             ofstream file;
-            file.open( "Users/" + u1.name + ".txt");
-            file << "Name: "<< u1.name << endl <<"Age: " << u1.age << endl <<"Password: " << u1.password;//encrypted password
+            file.open( "Users/" + name + ".txt");
+            file << "Name: "<< name << endl <<"Age: " << age << endl <<"Password: " << password;//encrypted password
             file.close();
 
-        } else if (u1.user_choice == 2){
+        } else if (user_choice == 2){
             bool status = SigningIn();
             if (!status)
             {
@@ -128,3 +124,13 @@ void RegisterMenu(){
         }
        
     }
+
+    void View_Profile(){
+        cout << "View User Profile: "<< endl;
+
+        //View User Details - No history 
+
+        //View User Details - Show in program
+
+        //Complete 11/07/26
+    };
