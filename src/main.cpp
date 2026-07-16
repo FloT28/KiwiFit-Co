@@ -22,9 +22,9 @@ void WelcomeScreen(){
 
     //Welcome Screen
     cout <<"🌴 ~ 🌱 🌴 ~ 🌱 🌴 ~ 🌱 🌴 ~ 🌱🌴 ~ 🌱 " << endl;
-    cout <<" 🌿 🌿                             🥝 🥝 "<<endl;
-    cout <<" 🌿 🌿         KIWIFIT-CO          🥝 🥝 "<<endl;
-    cout <<" 🌿 🌿                             🥝 🥝 "<<endl;
+    cout <<" 🥝 🥝                             🥝 🥝 "<<endl;
+    cout <<" 🥝 🥝         KIWIFIT-CO          🥝 🥝 "<<endl;
+    cout <<" 🥝 🥝                             🥝 🥝 "<<endl;
     cout <<"🌴 ~ 🌱 🌴 ~ 🌱 🌴 ~ 🌱 🌴 ~ 🌱🌴 ~ 🌱 " << endl;
  
     cout << "               About Us              " << endl; 

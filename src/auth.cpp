@@ -10,13 +10,13 @@
 
 using namespace std; 
 
+std::string currentUser; 
+
 string getHiddenpassword(){
     char pwd[9];
     int i;
 
     //Password length of only 8 characters allowed
-
-    clearScreen();
 
     cout <<"Enter Password: ";
     for (i=0; i <8; i++){
@@ -39,10 +39,10 @@ bool SigningIn(){
         int age;
 
         while (true){
-             cout <<"Enter first name: "<< endl;
+        cout <<"Enter first name: "<< endl;
+        cout <<"DEBUG: :currentUser set to ["<<currentUser <<"]" << endl;
         cin >> name; 
 
-        cout << "Enter password: " << endl; 
         password = getHiddenpassword();
         
         //check if user's name and password is found inside files 
@@ -96,7 +96,6 @@ void RegisterMenu(){
             cin >> name;
             cout <<"Enter your age: ";
             cin >> age;
-            cout <<"Enter your password: ";
             password = getHiddenpassword();
 
             //Store new users into file
@@ -125,12 +124,3 @@ void RegisterMenu(){
        
     }
 
-    void View_Profile(){
-        cout << "View User Profile: "<< endl;
-
-        //View User Details - No history 
-
-        //View User Details - Show in program
-
-        //Complete 11/07/26
-    };
