@@ -1,7 +1,9 @@
 #include "user.h"
 #include "tools.h"
 #include "workout.h"
+#include "auth.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -23,6 +25,7 @@ void User_Menu(){
 
     if (user_input == 1){
        cout << "View Profile" << endl;
+       View_Profile();
     } else if (user_input == 2){
         cout << "History"<<endl;
     }
@@ -38,16 +41,29 @@ void User_Menu(){
 
 }
 
-void Signin(
-    
-);
 
 void View_Profile(){
-    cout<<"Welcome back"<<endl;
-    //Collect user information 
-    //Display via new window 
+        cout << "View User Profile: "<< endl;
 
-}
+        string path = "Users/" + currentUser + ".txt";
+        cout << "Attempting to open: ["<< path <<"]" << endl;
+        
+        ifstream log(path);
+        if (!log.is_open()){
+            cout <<"No User History, found under this name\n";
+            return;
+        }
+    
+        //Show User History - currentUser account
+        string line; 
+        cout <<"\n ***** User History for: " << currentUser << "****\n";
+        while(getline(log, line)){
+            cout << line << endl;//to fix: only show name and age Not Password!
+        }
+        
+        log.close();
+
+    };
 
 void UpdateProfile();
 

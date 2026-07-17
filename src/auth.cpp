@@ -35,7 +35,7 @@ bool SigningIn(){
         string storedName, storedPassword, storedAge;
 
         string name;
-        string password = getHiddenpassword();
+        string password;
         int age;
 
         while (true){
@@ -64,6 +64,7 @@ bool SigningIn(){
 
             //validate or check enter credentials
             if (name == storedName && password == storedPassword){
+                currentUser = name; //Sets global variable for currentUser
                 View_Profile();
                 cout <<"\n";
                 return true;

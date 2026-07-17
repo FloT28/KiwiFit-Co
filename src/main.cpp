@@ -46,9 +46,10 @@ void MainMenu(){
 
         cout <<"1. 👤 User Menu"<<endl;
         cout <<"2. 💪 Workout Menu"<<endl;
+        //Add Logout here (return to main menu for register / sign-in)
         cout <<"3. 🚪 Exit"<<endl;
 
-        cout <<"Enter your preferred choice (1-8)"<<endl;
+        cout <<"Enter your preferred choice (1-3)"<<endl;
         cin >> user_input;
 
         if (user_input == 1){

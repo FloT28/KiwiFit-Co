@@ -39,7 +39,6 @@ void workoutMenu(){
     system("cls");    // clear screen
 }
 
-string currentUser; //Current logged in user 
 
 //Workout log function
 void log_workout(){
