@@ -89,7 +89,30 @@ void View_Workout(){
     log.close();
 };
 
-void Delete_Workout();
+void Delete_Workout(){
+    cout <<"Delete Workout: " << endl; 
+    
+    string filepath = "Users/" + currentUser + "workouts.txt";
+
+    ifstream log(filepath);
+    if (!log.is_open()){
+        cout <<"No Workout History found!\n";
+        return;
+    }
+
+    vector<string> lines;
+    string line; 
+    while(getline(log, line)){
+
+    }
+    log.close();
+
+    //To-Do: Check lineNumberToDelete is inside range 
+    //To-Do: erase the line from 'lines' (hint: lines.erase())
+    //To-Do: write 'lines' back to filepath, overwrite old file 
+    //To-Do: give user feedback (success / fail message)
+    
+};
 
 
 //To-Do: add workout logic
